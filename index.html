@@ -8,6 +8,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <!-- header -->
+    <nav class="font-sans flex flex-col text-center content-center sm:flex-row sm:text-left sm:justify-between py-2 px-6 bg-white shadow sm:items-baseline w-full bg-blue-500">
+
+        <div class="mb-2 sm:mb-0 flex flex-row
+        ">
+          <div class="h-10 w-10 self-center mr-2">
+            <img class="h-10 w-10 self-center" src="./Assets/Images/NavBar Icon.jpg" />
+          </div>
+          <div>
+            <a href="/home" class="text-2xl no-underline text-grey-darkest hover:text-blue-dark font-sans font-bold">A Budget Movie Data Site</a><br>
+            <span class="text-xs text-grey-dark">Welcome to the world of movie information</span>
+          </div>
+        </div>
     
+      </nav>
+
+    <!-- component -->
+<div class='flex items-center justify-center min-h-screen bg-blue-300'>
+    <div class="flex items-center max-w-md mx-auto bg-white rounded-lg " x-data="{ search: '' }">
+        <div class="w-full">
+            <input type="search" class="w-full px-4 py-1 text-gray-800 rounded-full focus:outline-none"
+                placeholder="search" x-model="search">
+        </div>
+        <div>
+            <button type="submit" class="flex items-center bg-blue-900 hover:bg-blue-500 justify-center w-12 h-12 text-white rounded-r-lg"
+                :class="(search.length > 0) ? 'bg-purple-500' : 'bg-gray-500 cursor-not-allowed'"
+                :disabled="search.length == 0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
+
