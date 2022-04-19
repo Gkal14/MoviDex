@@ -29,10 +29,10 @@
     <div class="flex items-center max-w-md mx-auto bg-white rounded-lg " x-data="{ search: '' }">
         <div class="w-full">
             <input type="search" class="w-full px-4 py-1 text-gray-800 rounded-full focus:outline-none"
-                placeholder="search" x-model="search">
+                placeholder="search" x-model="search" id="searchInput">
         </div>
         <div>
-            <button type="submit" class="flex items-center bg-blue-900 hover:bg-blue-500 justify-center w-12 h-12 text-white rounded-r-lg"
+            <button type="submit" id="searchBtn" class="flex items-center bg-blue-900 hover:bg-blue-500 justify-center w-12 h-12 text-white rounded-r-lg"
                 :class="(search.length > 0) ? 'bg-purple-500' : 'bg-gray-500 cursor-not-allowed'"
                 :disabled="search.length == 0">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -45,6 +45,12 @@
     </div>
 </div>
 
+<!-- linking script -->
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+<script src="./homepage.js"></script>
 </body>
 </html>
 
