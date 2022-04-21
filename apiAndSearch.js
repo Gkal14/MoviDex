@@ -85,7 +85,7 @@ function getURLStream(movieID){
 // rendering function
 
 function displayData(omdbData, streamingData){
-    posterImg.attr('src', omdbData.Poster).attr('alt', omdbData.Title)
+    posterImg.attr('src', omdbData.Poster).attr('alt', streamingData.tagline)
     movieTitle.text(omdbData.Title)
     movieOverview.text(omdbData.Plot)
 }
