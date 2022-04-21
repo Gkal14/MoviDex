@@ -6,8 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Database</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+             darkMode: 'class',
+    }
+    </script>
 </head>
-<body class="bg-blue-300">
+<body  class="bg-gray-100 dark:bg-gray-800 transition-colors duration-300">
+
     <!-- navbar/header -->
     <nav class="font-sans flex flex-col text-center content-center sm:flex-row sm:text-left sm:justify-between py-2 px-6 bg-white shadow sm:items-baseline w-full bg-blue-500">
 
@@ -28,7 +35,17 @@
       <a href="./index.html" class="text-md no-underline text-black hover:text-blue-dark ml-2 px-1">Home</a>
       <a href="#" class="text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1">Link 2</a>
       <a href="#" class="text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1">Link 3</a>
-     
+        <button
+        class=" w-10 h-5 md:w-12 md:h-6 rounded-2xl bg-white flex items-center transition duration-300 focus:outline-none shadow"
+        onclick="toggleTheme()">
+        <div
+        id="switch-toggle"
+        class="w-6 h-6 md:w-7 md:h-7 relative rounded-full transition duration-500 transform bg-yellow-500 -translate-x-2 p-1 text-white ">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </div>
+      </button>
     </div>
   </nav>
 
@@ -72,5 +89,6 @@
     integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
     <script src="./apiAndSearch.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>
