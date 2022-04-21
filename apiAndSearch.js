@@ -1,5 +1,7 @@
 var searchBtn = $('#search-btn');
-
+var omdbAPIKey = '6cf7de9c'
+var xAPIHost = "streaming-availability.p.rapidapi.com"
+var xAPIKey = "48af6d5201msh053c835d802b65ep19886ajsnbee02c30d0f3"
 
 // api call
 function getMovieName(){
@@ -19,9 +21,20 @@ function getMovieName(){
         return ""
     }
 }
-getMovieName()
 
-function getDataOMDB()
+function getDataOMDB(movieID)
 {
     
+}
+
+function getDataStreamingAvailability(movieName){
+
+}
+
+
+
+// rendering function
+
+function displayData(){
+
 }
