@@ -3,13 +3,21 @@ var searchInput = $('#seachInput')
 var omdbAPIKey = '6cf7de9c'
 var xAPIHost = "streaming-availability.p.rapidapi.com"
 var xAPIKey = "48af6d5201msh053c835d802b65ep19886ajsnbee02c30d0f3"
-
-
+var posterImg = $('#posterImg')
+var movieTitle = $('#movieTitle')
+var movieOverview = $('#movieOverview')
 
 // initialzation
 async function init(){
-    var omdbData = await getDataOMDB()
+    var movieName = getMovieName()
+    if (movieName === ''){
+        // show modal
+        return
+    }
+    var omdbData = await getDataOMDB(movieName)
     var streamingData = await getDataStreamingAvailability(omdbData.imdbID)
+    console.log(omdbData,streamingData)
+    displayData(omdbData, streamingData)
 }
 
 init()
@@ -33,21 +41,25 @@ function getMovieName(){
     }
 }
 
-async function getDataOMDB(){
-    var movieName = getMovieName()
+// return data get from OMDB API
+async function getDataOMDB(movieName){
     var url = getURLOMDB(movieName)
     var response = await fetch(url)
+    if (response.status != 200){
+        // TODO redirect to error page with status and statusText param
+    }
     var data = await response.json()
     return data
 }
 
 
-
+// return url for OMDB API call
 function getURLOMDB(movieName){
     var link = "https://www.omdbapi.com/?t=" + movieName +"&apikey=" + omdbAPIKey
     return link
 }
 
+// return data get from StreamingAvailability API
 async function getDataStreamingAvailability(movieID){
     var option = {
         method: "GET",
@@ -62,8 +74,9 @@ async function getDataStreamingAvailability(movieID){
     return data
 }
 
+// return url for StreamingAvailability API cal;
 function getURLStream(movieID){
-    var link = 'https://streaming-availability.p.rapidapi.com/get/basic?country=au&output_language=en&imdb_id=' + movieID
+    var link = 'https://streaming-availability.p.rapidapi.com/get/basic?country=au&imdb_id=' + movieID + '&output_language=en'
     return link
 }
 
@@ -71,8 +84,10 @@ function getURLStream(movieID){
 
 // rendering function
 
-function displayData(){
-
+function displayData(omdbData, streamingData){
+    posterImg.attr('src', omdbData.Poster).attr('alt', omdbData.Title)
+    movieTitle.text(omdbData.Title)
+    movieOverview.text(omdbData.Plot)
 }
 
 // event handlers
