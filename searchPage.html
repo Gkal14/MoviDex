@@ -48,6 +48,7 @@
       </button>
     </div>
   </nav>
+  
 
     <!-- search -->
     <div class="flex items-center max-w-md ml-0 bg-white rounded-lg " x-data="{ search: '' }">
@@ -67,6 +68,7 @@
           </button>
       </div>
   </div>
+  
 
 <!-- card -->
 <div class='flex items-right mt-2 min-h-screen '>
@@ -81,7 +83,20 @@
         </div>
     </div>
   </div>
+  <!--The video card is within the card div, copy this and paste it elsewhere to reposition-->
+  <div id="responsiveVideoWrapper" className="relative h-0 pb-fluid-video" class="aspect-ratio: auto w-full">
+    <iframe
+      className="absolute top-0 left-0 w-full h-full"
+      src="https://www.youtube.com/embed/zihoyz0u_cs"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen>
+    </iframe>
+  </div>
 </div>
+
+
+
+  
 
 
     <!-- linking script -->
