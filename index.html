@@ -1,85 +1,56 @@
 <!DOCTYPE html>
-<html class="Light">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-             darkMode: 'class',
-    }
-    </script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Database</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
+<body>
+    <!-- header -->
+    <nav class="font-sans flex flex-col text-center content-center sm:flex-row sm:text-left sm:justify-between py-2 px-6 bg-white shadow sm:items-baseline w-full bg-blue-500 ">
 
-<body  class="bg-gray-100 dark:bg-gray-800 transition-colors duration-300">
-
-  <button
-    class="absolute top-5 right-5 w-10 h-5 md:w-12 md:h-6 rounded-2xl bg-white flex items-center transition duration-300 focus:outline-none shadow"
-    onclick="toggleTheme()">
-    <div
-      id="switch-toggle"
-      class="w-6 h-6 md:w-7 md:h-7 relative rounded-full transition duration-500 transform bg-yellow-500 -translate-x-2 p-1 text-white ">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-      </svg>
-    </div>
-  </button>
-
+        <div class="mb-2 sm:mb-0 flex flex-row ">
+          <div class="h-10 w-10 self-center mr-2">
+            <img class="h-10 w-10 self-center" src="./Assets/Images/NavBar Icon.jpg" />
+          </div>
+          <div>
+              <h1 class="text-2xl no-underline text-grey-darkest hover:text-blue-dark font-sans font-bold">A Budget Movie Data Site</h1>
+            <!-- <h1 class="text-2xl no-underline text-grey-darkest hover:text-blue-dark font-sans font-bold text-align-center">A Budget Movie Data Site</a><br> -->
+                <span class="text-xs text-grey-dark font-bold text-align-center text-grey-dark">Welcome to the World of Movie Information</span>
+          </div>
+        </div>
     
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="./script.js"></script>
+    </nav>
 
+    <!-- component -->
+<div class='flex items-center justify-center min-h-screen bg-blue-300'>
+    <div class="flex items-center max-w-md mx-auto bg-white rounded-lg " x-data="{ search: '' }">
+        <div class="w-full">
+            <input type="search" class="w-full px-4 py-1 text-gray-800 rounded-full focus:outline-none"
+                placeholder="search" x-model="search" id="searchInput">
+        </div>
+        <div>
+            <button type="submit" id="searchBtn" class="flex items-center bg-blue-900 hover:bg-blue-500 justify-center w-12 h-12 text-white rounded-r-lg"
+                :class="(search.length > 0) ? 'bg-purple-500' : 'bg-gray-500 cursor-not-allowed'"
+                :disabled="search.length == 0">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- linking script -->
+<script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+<script src="./homepage.js"></script>
+</body>
 </html>
 
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; img-src data:; connect-src 'self'">
-    <title>Site not found &middot; GitHub Pages</title>
-    <style type="text/css" media="screen">
-      body {
-        background-color: #f1f1f1;
-        margin: 0;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-      }
-
-      .container { margin: 50px auto 40px auto; width: 600px; text-align: center; }
-
-      a { color: #4183c4; text-decoration: none; }
-      a:hover { text-decoration: underline; }
-
-      h1 { width: 800px; position:relative; left: -100px; letter-spacing: -1px; line-height: 60px; font-size: 60px; font-weight: 100; margin: 0px 0 50px 0; text-shadow: 0 1px 0 #fff; }
-      p { color: rgba(0, 0, 0, 0.5); margin: 20px 0; line-height: 1.6; }
-
-      ul { list-style: none; margin: 25px 0; padding: 0; }
-      li { display: table-cell; font-weight: bold; width: 1%; }
-
-      .logo { display: inline-block; margin-top: 35px; }
-      .logo-img-2x { display: none; }
-      @media
-      only screen and (-webkit-min-device-pixel-ratio: 2),
-      only screen and (   min--moz-device-pixel-ratio: 2),
-      only screen and (     -o-min-device-pixel-ratio: 2/1),
-      only screen and (        min-device-pixel-ratio: 2),
-      only screen and (                min-resolution: 192dpi),
-      only screen and (                min-resolution: 2dppx) {
-        .logo-img-1x { display: none; }
-        .logo-img-2x { display: inline-block; }
-      }
-
-      #suggestions {
-        margin-top: 35px;
-        color: #ccc;
-      }
-      #suggestions a {
-        color: #666666;
-        font-weight: 200;
-        font-size: 14px;
-        margin: 0 10px;
-      }
-
-    </style>
-  </head>
-  <body>
-
-   
