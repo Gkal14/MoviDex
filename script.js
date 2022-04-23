@@ -16,7 +16,9 @@ if (localDarkmode) {
 } else {
   html.classList.remove('dark')
 }
+
 switchTheme()
+
 function toggleTheme (){
   darkmode = !darkmode
   localStorage.setItem('Darkmode', darkmode)

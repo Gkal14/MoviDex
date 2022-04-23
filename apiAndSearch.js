@@ -6,7 +6,8 @@ var xAPIKey = "48af6d5201msh053c835d802b65ep19886ajsnbee02c30d0f3"
 var posterImg = $('#posterImg')
 var movieTitle = $('#movieTitle')
 var movieOverview = $('#movieOverview')
-
+var trailer = $('#videoPlayer')
+var streamPlatform = $('#streamPlatform')
 // initialzation
 async function init(){
     var movieName = getMovieName()
@@ -15,8 +16,9 @@ async function init(){
         return
     }
     var omdbData = await getDataOMDB(movieName)
+    
     var streamingData = await getDataStreamingAvailability(omdbData.imdbID)
-    console.log(omdbData,streamingData)
+    console.log(streamingData)
     displayData(omdbData, streamingData)
 }
 
@@ -45,11 +47,23 @@ function getMovieName(){
 async function getDataOMDB(movieName){
     var url = getURLOMDB(movieName)
     var response = await fetch(url)
-    if (response.status != 200){
+    console.log(response)
+    if (!response.ok){
         // TODO redirect to error page with status and statusText param
+        var errorParam = "status="+ response.status + "&statusText=" + response.statusText
+        var location = "./404.html?" + errorParam
+        window.location.href = location
     }
     var data = await response.json()
-    return data
+    console.log(data)
+    if (data.Response =="True"){
+        return data
+    }
+    else{
+        var errorParam = "status=404%" + data.Error
+        var location = "./404.html?" + errorParam
+        window.location.href = location
+    }
 }
 
 
@@ -80,14 +94,38 @@ function getURLStream(movieID){
     return link
 }
 
-
+// get youtube video url for displaying trailer
+function getYouTubeLink(videoID){
+    var link = "https://www.youtube.com/embed/" + videoID
+    return link
+}
 
 // rendering function
-
 function displayData(omdbData, streamingData){
+    // poster
     posterImg.attr('src', omdbData.Poster).attr('alt', streamingData.tagline)
     movieTitle.text(omdbData.Title)
     movieOverview.text(omdbData.Plot)
+
+    // trailer video
+    var youtube = getYouTubeLink(streamingData.video)
+    trailer.attr('src', youtube)
+
+    // streaming platform buttons
+    var streamAvail = streamingData.streamingInfo
+    var keys = Object.keys(streamAvail)
+    var streamingPlatform = $('<p>')
+    if (keys.length > 0){
+        streamingPlatform.text('Available on:')
+        for (var i = 0; i < keys.length; i++){
+            console.log(streamAvail.keys[i])
+        }
+    }
+    else{
+        streamingPlatform.text('Not Available online')
+    }
+    
+    
 }
 
 // event handlers
@@ -98,7 +136,7 @@ function searchBtnClicked(){
         return
     }
     var location = './searchPage.html?movie=' + input
-    window.location.replace(location)
+    window.location.href = location
 }
 
 

@@ -15,5 +15,5 @@ function searchBtnClicked(){
 
     // configure url and redirect to searchPage with parameter
     var location = './searchPage.html?movie=' + input
-    window.location.replace(location)
+    window.location.href = location
 }
