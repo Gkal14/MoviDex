@@ -16,7 +16,7 @@ function getstatus(){
         var param = query.split('&')
         var status = param[0].split('=')[1]
         var statusText = param[1].split('=')[1]
-        statusText= statusText.replace("%20"," ")
+        statusText= statusText.replaceAll("%20"," ")
         var statusReturn = {
             status: status,
             text: statusText

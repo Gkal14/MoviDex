@@ -90,7 +90,7 @@ async function getMovieList(movieName, pageNum){
         return data
     }
     else{
-        var errorParam = "status=404%" + data.Error
+        var errorParam = "status=404&statusText=" + data.Error
         var location = "./404.html?" + errorParam
         window.location.href = location
     }
