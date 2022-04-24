@@ -8,8 +8,13 @@ var movieTitle = $('#movieTitle')
 var movieOverview = $('#movieOverview')
 var trailer = $('#videoPlayer')
 var streamPlatform = $('#streamPlatform')
+
+
+
 // initialzation
 async function init(){
+    resizeSvg(100,100)
+    hideAllSvg()
     var movieName = getMovieName()
     if (movieName === ''){
         // show modal
@@ -20,6 +25,21 @@ async function init(){
     var streamingData = await getDataStreamingAvailability(omdbData.imdbID)
     console.log(streamingData)
     displayData(omdbData, streamingData)
+}
+
+function resizeSvg(width, height) {
+    var streamList = $('#streamPlatform img')
+    for (var i = 0; i < streamList.length; i++) {
+        $(streamList[i]).attr('width', width)
+        $(streamList[i]).attr('height', height)
+    }
+}
+
+function hideAllSvg(){
+    var streamList = streamPlatform.children()
+    for (var i = 0; i < streamList.length; i++) {
+        $(streamList[i]).attr('style', 'display:none;')
+    }
 }
 
 init()
@@ -118,11 +138,12 @@ function displayData(omdbData, streamingData){
     if (keys.length > 0){
         streamingPlatform.text('Available on:')
         for (var i = 0; i < keys.length; i++){
-            console.log(streamAvail.keys[i])
+            var selectorString = '#' + keys[i]
+            $(selectorString).attr('style', 'display: inline-block;')
         }
     }
     else{
-        streamingPlatform.text('Not Available online')
+        $('#na').attr('style', 'display: inline-block;')
     }
     
     
