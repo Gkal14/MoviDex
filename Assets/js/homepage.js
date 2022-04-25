@@ -4,6 +4,7 @@ var searchBtn = $('#searchBtn')
 
 // add event Listener
 searchBtn.on('click', searchBtnClicked)
+searchInput.on('keyup', handleEnter)
 
 // handle search button click
 function searchBtnClicked(){
@@ -12,6 +13,14 @@ function searchBtnClicked(){
     if (input === ''){
         return
     }
+
+    // configure url and redirect to searchPage with parameter
     var location = './searchPage.html?movie=' + input
-    window.location.replace(location)
+    window.location.href = location
+}
+
+function handleEnter(event){
+    if (event.keyCode === 13) {
+        searchBtn.click()
+    }
 }
