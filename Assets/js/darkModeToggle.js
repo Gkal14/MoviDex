@@ -29,12 +29,12 @@ function switchTheme (){
     html.classList.add('dark')
     switchToggle.classList.remove('bg-yellow-500','-translate-x-2')
     switchToggle.classList.add('bg-gray-700','translate-x-full')
-    switchToggle.innerHTML = lightIcon
+    switchToggle.innerHTML = darkIcon
   
   } else {
     html.classList.remove('dark')
     switchToggle.classList.add('bg-yellow-500','-translate-x-2')
     switchToggle.classList.remove('bg-gray-700','translate-x-full')
-    switchToggle.innerHTML = darkIcon
+    switchToggle.innerHTML = lightIcon
   }
 }
