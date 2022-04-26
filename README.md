@@ -1,7 +1,7 @@
 # Project-1
 
 ## Website URL
-https://gkal14.github.io/Project-1/
+https://gkal14.github.io/MoviDex/
 
 ## Goals
 My team build this project because the client wanted a website where they are able to input a movie name and when clicked on; information about the movie is displayed, as well with ratings and the trailer for the movie.
