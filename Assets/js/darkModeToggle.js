@@ -24,6 +24,7 @@ function toggleTheme (){
   localStorage.setItem('darkmode', darkmode)
   switchTheme()
 }
+
 function switchTheme (){
   if (darkmode) {
     html.classList.add('dark')
