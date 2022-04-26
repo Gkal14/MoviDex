@@ -15,27 +15,21 @@
 </head>
 <body  class="bg-gray-100 dark:bg-gray-800 transition-colors duration-300">
 
-    <!-- navbar/header -->
-    <nav class="font-sans flex flex-col text-center content-center sm:flex-row sm:text-left sm:justify-between py-2 px-6 bg-white shadow sm:items-baseline w-full bg-blue-500">
-
-    <div class="mb-2 sm:mb-0 flex flex-row
-    ">
+  <!-- navbar/header -->
+  <nav class="font-sans flex flex-col text-center content-center sm:flex-row sm:text-left sm:justify-between py-2 px-6 bg-white shadow sm:items-baseline w-full bg-blue-500">
+    <div class="mb-2 sm:mb-0 flex flex-row">
       <div class="h-10 w-10 self-center mr-2">
         <img class="h-10 w-10 self-center" src="./Assets/Images/NavBar Icon.jpg" />
       </div>
       <div>
-        <a href="/home" class="text-2xl no-underline text-grey-darkest hover:text-blue-dark font-sans font-bold">A Budget Movie Data Site</a><br>
+        <a href="./index.html" class="text-2xl no-underline text-grey-darkest hover:text-blue-dark font-sans font-bold">A Budget Movie Data Site</a><br>
         <span class="text-xs text-grey-dark font-bold text-align-center text-grey-dark">Welcome to the World of Movie Information</span>
       </div>
     </div>
   
-    <!-- links -->
+    <!-- dark Mode -->
     <div class="sm:mb-0 self-center">
-     
-      <a href="./index.html" class="text-md no-underline text-black hover:text-blue-dark ml-2 px-1">Home</a>
-      <a href="#" class="text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1">Link 2</a>
-      <a href="#" class="text-md no-underline text-grey-darker hover:text-blue-dark ml-2 px-1">Link 3</a>
-        <button
+      <button type="submit"
         class=" w-10 h-5 md:w-12 md:h-6 rounded-2xl bg-white flex items-center transition duration-300 focus:outline-none shadow"
         onclick="toggleTheme()">
         <div
@@ -48,48 +42,120 @@
       </button>
     </div>
   </nav>
+  
 
-<!-- card -->
-<div class='flex items-center justify-center min-h-screen bg-blue-100'>
-  <div class="flex-row justify-center min-h-screen bg-blue-300">
-    <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 mr--2 bg-red-500">
-        <a href="#">
-            <img class="rounded-t-lg" src="./Assets/Images/placeholder image.jpg" alt="Placeholder Image">
-        </a>
-        <div class="p-5">
-                <h5 class="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white">HEADER</h5>
-            <p class="font-normal text-gray-700 mb-3 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, asperiores.
-            </p>
-        </div>
+    <!-- search -->
+  <div class="flex items-center max-w-md ml-0 bg-white rounded-lg " x-data="{ search: '' }">
+      <div class="w-full">
+        <input type="search" class="w-full px-4 py-1 text-gray-800 rounded-full focus:outline-none"
+              placeholder="search" x-model="search" id="seachInput">
+      </div>
+      <div>
+          <button id="searchBtn" type="submit" class="flex items-center bg-blue-900 hover:bg-blue-500 justify-center w-12 h-12 text-white rounded-r-lg"
+              :class="(search.length > 0) ? 'bg-purple-500' : 'bg-gray-500 cursor-not-allowed'"
+              :disabled="search.length == 0">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+          </button>
+      </div>
+  </div>
+  
+  <!-- List of movie found -->
+  <div id="movieListContainer" class="mt-2">
+    <div id="movieList" class="holder mx-auto w-10/12 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4"></div>
+    <div id="navBtn" class="justify-center flex">
+      <button type="button" id="previousBtn" class="p-2 pl-5 pr-5 bg-transparent border-2 border-blue-500 text-blue-500 text-lg rounded-lg hover:bg-blue-500 hover:text-gray-100 focus:border-4 focus:border-blue-300 mx-2 mb-5">Previous</button>
+      <button type="button" id="nextBtn" class="p-2 pl-5 pr-5 bg-transparent border-2 border-blue-500 text-blue-500 text-lg rounded-lg hover:bg-blue-500 hover:text-gray-100 focus:border-4 focus:border-blue-300 mx-2 mb-5">Next</button>
     </div>
   </div>
-  <!-- search -->
-    <div class="flex items-center max-w-md mx-auto bg-white rounded-lg " x-data="{ search: '' }">
-        <div class="w-full">
-            <input type="search" class="w-full px-4 py-1 text-gray-800 rounded-full focus:outline-none"
-                placeholder="search" x-model="search">
-        </div>
-        <div>
-            <button type="submit" class="flex items-center bg-blue-900 hover:bg-blue-500 justify-center w-12 h-12 text-white rounded-r-lg"
-                :class="(search.length > 0) ? 'bg-purple-500' : 'bg-gray-500 cursor-not-allowed'"
-                :disabled="search.length == 0">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                </svg>
-            </button>
-        </div>
+  
+
+  <!-- Single Movie Info -->
+  <div id="singleMovieInfo" class='flex items-right mt-2 min-h-screen' style='display:none;'>
+    <div class="flex-row justify-center min-h-screen" id="posterCard" style="display:none;">
+      <div class="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 mr-2">
+          <img id="posterImg" class="rounded-t-lg w-full">
+          <div class="p-5">
+              <h5 id="movieTitle" class="text-gray-900 font-bold text-2xl tracking-tight mb-2 dark:text-white"></h5>
+              <p id="movieOverview" class="font-normal text-gray-700 mb-3 dark:text-gray-400"></p>
+              <p id="pgRated" class="font-normal text-gray-700 mb-3 dark:text-gray-400">PG Rated: <span></span></p>
+              <p id="type" class="font-normal text-gray-700 mb-3 dark:text-gray-400">Type: <span></span></p>
+              <p id="release" class="font-normal text-gray-700 mb-3 dark:text-gray-400">Release Date: <span></span></p>
+              <p id="runtime" class="font-normal text-gray-700 mb-3 dark:text-gray-400">Total Run Time: <span></span></p>
+              <p id="director" class="font-normal text-gray-700 mb-3 dark:text-gray-400">Director: <span></span></p>
+              <p id="boxOffice" class="font-normal text-gray-700 mb-3 dark:text-gray-400">Ticket Sale: <span></span></p>
+          </div>
+      </div>
     </div>
-    
-</div>
+    <!--The video card is within the card div, copy this and paste it elsewhere to reposition-->
+    <div class="w-full">
+      <div id="videoArea" class="w-full aspect-video" >
+        <iframe id="videoPlayer" 
+        width="100%" height="100%"
+        class="min-h-0"
+        title="Couldn't find trailer"
+        allowFullScreen></iframe>
+      </div>
+      
 
+      <p class="text-2xl text-gray-700 mb-3 dark:text-gray-400">Movie Score:</p>
+      <ul id="scoreList" class="ml-5">
+        <li id="noInfoRating"><p class="font-normal text-gray-700 mb-3 dark:text-gray-400">No info on rating</p></li>
+      </ul>
 
-    <!-- linking script -->
-    <script
-    src="https://code.jquery.com/jquery-3.6.0.js"
-    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-    crossorigin="anonymous"></script>
-    <script src="./script.js"></script>
+      <ul id="streamPlatform" class="flex justify-center mx-auto my-5 gap-x-5 content-center" >
+        <li class="grow-0 shrink-0" id="netflix"><a>
+            <img src="./Assets/svg/netflix.svg"></img>
+        </a></li>
+
+        <li class="grow-0 shrink-0" id="apple"><a>
+          <img src="./Assets/svg/apple.svg"></img>
+        </a></li>
+
+        <li class="grow-0 shrink-0" id="disney"><a>
+          <img src="./Assets/svg/disneyPlus.svg"></img>
+        </a></li>
+
+        <li class="grow-0 shrink-0" id="prime"><a>
+          <img src="./Assets/svg/prime.svg"></img>
+        </a></li>
+
+        <li class="grow-0 shrink-0" id="stan"><a>
+          <img src="./Assets/svg/stan.svg"></img>
+        </a></li>
+
+        <li class="grow-0 shrink-0" id="britbox"><a>
+          <img src="./Assets/svg/britbox.svg"></img>
+        </a></li>
+
+        <li class="grow-0 shrink-0" id="curiosity"><a>
+          <img src="./Assets/svg/curiosity.svg"></img>
+        </a></li>
+
+        <li class="grow-0 shrink-0" id="mubi"><a>
+          <img src="./Assets/svg/mubi.svg"></img>
+        </a></li>
+
+        <li class="grow-0 shrink-0" id="zee5"><a>
+          <img src="./Assets/svg/zee5.svg"></img>
+        </a></li>
+
+        <li class="grow-0 shrink-0" id="na">
+          <p class="dark:text-gray-400">Couldn't find any streaming platform.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- linking script -->
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+  <script src="./Assets/js/darkModeToggle.js"></script>
+  <script src="./Assets/js/apiAndSearch.js"></script>
 </body>
 </html>

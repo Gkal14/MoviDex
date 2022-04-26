@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+        integrity="sha512-wnea99uKIC3TJF7v4eKk4Y+lMz2Mklv18+r4na2Gn1abDRPPOeef95xTzdwGD9e6zXJBteMIhZ1+68QC5byJZw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+             darkMode: 'class',
+    }
+    </script>
+</head>
+
+<body class="dark:bg-gray-800 transition-colors duration-300">
+  <nav class="font-sans flex flex-col text-center content-center sm:flex-row sm:text-left sm:justify-between py-2 px-6 bg-white shadow sm:items-baseline w-full bg-blue-500">
+
+    <div class="mb-2 sm:mb-0 flex flex-row
+    ">
+      <div class="h-10 w-10 self-center mr-2">
+        <img class="h-10 w-10 self-center" src="./Assets/Images/NavBar Icon.jpg" />
+      </div>
+      <div>
+        <a href="./index.html" class="text-2xl no-underline text-grey-darkest hover:text-blue-dark font-sans font-bold">A Budget Movie Data Site</a><br>
+        <span class="text-xs text-grey-dark font-bold text-align-center text-grey-dark">Welcome to the World of Movie Information</span>
+      </div>
+    </div>
+
+    <!-- dark Mode -->
+    <div class="sm:mb-0 self-center">
+      <button
+        class=" w-10 h-5 md:w-12 md:h-6 rounded-2xl bg-white flex items-center transition duration-300 focus:outline-none shadow"
+        onclick="toggleTheme()">
+        <div
+        id="switch-toggle"
+        class="w-6 h-6 md:w-7 md:h-7 relative rounded-full transition duration-500 transform bg-yellow-500 -translate-x-2 p-1 text-white ">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </div>
+      </button>
+    </div>
+  </nav>
+  
+
+  <div class="flex justify-center flex-wrap" id="errorArea">
+    <h1 class="text-8xl text-grey-dark font-bold text-center w-full dark:text-gray-400"></h1>  
+    <p class="text-6xl text-grey-dark font-bold text-center w-full m-2 dark:text-gray-400"></p>
+    
+    <button class=" mt-10 p-2 pl-5 pr-5 bg-transparent border-2 border-blue-500 text-blue-500 text-lg rounded-lg hover:bg-blue-500 hover:text-gray-100 focus:border-4 focus:border-blue-300">Home</button>
+  </div>
+
+  <!-- linking script -->
+  <script
+  src="https://code.jquery.com/jquery-3.6.0.js"
+  integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+  <script src="./Assets/js/darkModeToggle.js"></script>
+  <script src="./Assets/js/errorPage.js"></script>
+</body>
+
+</html>
