@@ -11,11 +11,11 @@ A problem I encountered with the CSS framework 'Tailwind' was that we had to inp
 
 ## Completed Requirements
 ```
-1. When the user searches for a movie they are presented with a list of movies with the movie they searched
-2. When the user clicks on the movie they are presented with the following: movie poster, information on the movie (about, rating, type, release date, total run time, director, ticket sales), movie score (ratings), the trailer for said movie and links to where the movie can be watched (Netflix/Stan)
+1. When the user searches for a movie they are presented with a list of movies with the movie they searched for
+2. When the user clicks on a card, more details of that movie/series will be displayed, Its trailer will be displayed if available and its online streaming platform in AU will be displayed
 3. When the user clicks on the trailer of said movie, the trailer is played
-4. When the user clicks on the "Netflix" or "Stan" link they transferred to the movie on their respective streaming site.
-5. When the user searches for an invalid movie they are transferred to a 404 page.
+4. When the user clicks on a movie online streaming platform, they will be redirected to that movie of that platform
+5. When the user searchs a string that is not a movie/series, you will be redirect to error pages.
 6. When the user clicks on the main title "A Budget Movie Data Site" they are transferred back to the home page.
 7. When the user clicks on the dark mode button, the background color changes successfully 
 ```
@@ -49,7 +49,12 @@ The following images show the web page appearance with dark mode disabled:
 
 ## Features/Interactions/Points of Interests
 
-1. When the user toggles on the dark mode, it persists throughout the site, when refreshed and when closed/reopened
+1. When the user toggles on the dark mode, it persists throughout the site, when refreshed and when closed/reopened; the icons also change
+![dark mode button enabled](./Assets/Images/dark%20mode%20enabled%20homepage.jpg)
+![dark mode button disabled](./Assets/Images/dark%20mode%20disabled%20home%20page.jpg)
+
+2. When there is no available streaming platform for the movie/series the following text will be shown
+![No streaming platforms support the movie/series](./Assets/Images/No%20streaming%20platform%20available.jpg)
 
 
 
