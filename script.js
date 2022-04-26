@@ -18,7 +18,7 @@ if (localDarkmode) {
 }
 function toggleTheme (){
   darkmode = !darkmode
-  localStorage.setItem('Darkmode', darkmode)
+  localStorage.setItem('darkmode', darkmode)
   switchTheme()
 }
 function switchTheme (){
