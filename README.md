@@ -50,9 +50,12 @@ The following images show the web page appearance with dark mode disabled:
 ## Features/Interactions/Points of Interests
 
 1. When the user toggles on the dark mode, it persists throughout the site, when refreshed and when closed/reopened; the icons also change
-![dark mode button enabled](./Assets/Images/dark%20mode%20enabled%20homepage.jpg)
 
-![dark mode button disabled](./Assets/Images/dark%20mode%20disabled%20home%20page.jpg)
+1.1 Button shows the user when dark mode has been enabled
+![dark mode button enabled](./Assets/Images/dark%20mode%20enabled%20and%20icon.jpg)
+
+1.2 Button shows the user when light mode(when dark mode is disabled) has been enabled
+![dark mode button disabled](./Assets/Images/Dark%20mode%20Disabled%20and%20icon.jpg)
 
 2. When there is no available streaming platform for the movie/series the following text will be shown
 ![No streaming platforms support the movie/series](./Assets/Images/No%20streaming%20platform%20available.jpg)
