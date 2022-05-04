@@ -20,6 +20,15 @@ A problem I encountered with the CSS framework 'Tailwind' was that we had to inp
 7. When the user clicks on the dark mode button, the background color changes successfully 
 ```
 
+## List of Technologies Used
+```
+1. Jquery
+2. Tailwind CSS
+3. OMDB(Open Movie Database) API
+4. Streaming Availability API:
+```
+
+
 ## Mock up
 
 The following images show the web page appearance with dark mode disabled:
@@ -61,4 +70,12 @@ The following images show the web page appearance with dark mode disabled:
 ![No streaming platforms support the movie/series](./Assets/Images/No%20streaming%20platform%20available.jpg)
 
 
+## Contact and collaborators
+```
+1. Abhishek Chaudhary
+2. Chi Hieu Nguyen
+3. George Kaluwin
+4. Peter Jolley
+5. Zekun Chen
+```
 
